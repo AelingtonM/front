@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #df1515; /* Cor do cabeçalho */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    color: white; /* Nome da empresa em branco */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 60px;
+    border: none;
+    border-radius: 3px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #af0606; /* Botão de busca */
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+    position: relative; /* Para o uso do pseudo-elemento */
+}
+
+nav ul li a {
+    color: #fff; /* Cor do texto visível inicialmente */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    padding: 5px 0; /* Espaçamento vertical para a linha */
+    transition: color 0.3s; /* Animação suave para a cor do texto */
+    position: relative; /* Para o uso do pseudo-elemento para a linha */
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px; /* Altura da linha */
+    background-color: #fff; /* Cor da linha */
+    width: 100%; /* Largura da linha */
+    position: absolute; /* Posição absoluta em relação ao link */
+    left: 0; /* Alinha à esquerda */
+    top: 100%; /* Coloca a linha logo abaixo do texto */
+    transform: scaleX(0); /* Inicialmente, a linha não é visível */
+    transition: transform 0.3s; /* Animação suave para a largura da linha */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* A linha se expande ao passar o mouse */
+}
+
+nav ul li a:hover {
+    color: #fff; /* A cor do texto permanece a mesma ao passar o mouse */
+}
+
+/* Estilo para a linha intuitiva */
+nav ul li a::before {
+    content: ''; /* Adiciona a linha intuitiva */
+    display: block;
+    height: 2px; /* Altura da linha */
+    background-color: #fff; /* Cor da linha */
+    width: 100%; /* Largura da linha */
+    position: absolute; /* Posição absoluta em relação ao link */
+    left: 0; /* Alinha à esquerda */
+    bottom: 0; /* Coloca a linha logo abaixo do texto */
+    z-index: -1; /* Coloca a linha atrás do texto */
+    transition: transform 0.3s; /* Animação suave para a largura da linha */
+}
+
+nav ul li:hover a {
+    color: #fff; /* A cor do texto permanece a mesma ao passar o mouse */
+}
+
+nav ul li a:hover::before {
+    transform: scaleX(1); /* A linha se expande ao passar o mouse */
+}
+
+.banner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo para o carrossel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: none; /* Inicialmente escondido */
+    text-align: center;
+    opacity: 0; /* Iniciar com opacidade 0 para a animação */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease; /* Animação suave */
+}
+
+.carousel-item.active {
+    display: block; /* Exibe apenas o item ativo */
+    opacity: 1; /* Define a opacidade para 1 do item ativo */
+    transform: translateX(0); /* Mantém a posição original do item ativo */
+}
+
+.carousel-item:not(.active) {
+    transform: translateX(100%); /* Move os itens não ativos para fora à direita */
+}
+
+/* Estilo das imagens do carrossel */
+.carousel-item img {
+    width: 100%;
+    height: 100%; /* Define a altura para preencher o contêiner */
+    object-fit: contain; /* Mantém a proporção da imagem, mas ajusta ao contêiner */
+    max-height: 400px; /* Define uma altura máxima para o carrossel */
+}
+
+/* Botões de controle do carrossel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%; /* Botões redondos */
+    transition: background-color 0.3s; /* Animação para a cor de fundo */
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Cor do botão ao passar o mouse */
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Estilo para a seção de produtos */
+.produtos {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.produtos h2 {
+    margin-bottom: 20px;
+    color: #ff0000; /* Título "Destaques" em vermelho chamativo */
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.produto-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.produto-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain; /* Mantém a proporção da imagem */
+    margin-bottom: 10px;
+}
+
+.produto-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #007bff; /* Cor chamativa para os nomes dos brinquedos (azul padrão) */
+}
+
+.produto-item p {
+    color: #e70c0c; /* Preço em vermelho */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.produto-item button {
+    padding: 10px;
+    background-color: #b80808; /* Cor do botão "Comprar" */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.produto-item button:hover {
+    background-color: #eb0f0f; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo do carrinho */
+.carrinho {
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.carrinho h2 {
+    margin-bottom: 20px;
+}
+
+.carrinho-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para login e cadastro */
+.login-cadastro {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.login, .cadastro {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login h2, .cadastro h2 {
+    margin-bottom: 15px;
+}
+
+.login form, .cadastro form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login form label, .cadastro form label {
+    margin-bottom: 5px;
+}
+
+.login form input, .cadastro form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Botão de login e cadastro */
+.login form button, .cadastro form button {
+    padding: 10px;
+    background-color: #df1515; /* Cor do botão em login e cadastro */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.login form button:hover, .cadastro form button:hover {
+    background-color: #af0606; /* Cor do botão ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login, .cadastro {
+        width: 100%;
+    }
+}
