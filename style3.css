@@ -1,0 +1,167 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+}
+
+/* Estilo do cabeçalho */
+header {
+    background-color: #df1515; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+nav ul {
+    list-style: none; /* Remove marcadores */
+    display: flex; /* Exibe os itens em linha */
+    gap: 15px; /* Espaçamento entre os itens */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff; /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Estilo da seção do carrinho */
+.carrinho {
+    padding: 20px;
+    background-color: #fff; /* Fundo branco */
+    margin: 20px; /* Margem em volta da seção */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    flex-grow: 1; /* Faz a seção ocupar o espaço disponível */
+}
+
+.carrinho h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em; /* Tamanho maior para o título */
+    color: #df1515; /* Cor do título */
+}
+
+/* Itens do carrinho */
+.carrinho-item {
+    display: flex; /* Alinha itens em linha */
+    align-items: center; /* Centraliza verticalmente */
+    background-color: #f9f9f9; /* Fundo dos itens do carrinho */
+    padding: 15px;
+    border: 1px solid #ddd; /* Borda dos itens */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 15px; /* Espaçamento entre itens */
+}
+
+.carrinho-item img {
+    width: 100px; /* Largura fixa para a imagem */
+    height: auto; /* Altura automática para manter proporção */
+    margin-right: 15px; /* Espaçamento à direita da imagem */
+}
+
+.carrinho-item-info {
+    flex: 1; /* Permite que a informação do item ocupe o espaço restante */
+}
+
+.carrinho-item-info h2 {
+    margin: 0; /* Remove margem do título */
+    color: #007bff; /* Cor do nome do produto */
+}
+
+.carrinho-item-info p {
+    margin: 5px 0; /* Margem entre parágrafos */
+    color: #e70c0c; /* Preço em vermelho */
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilo da caixa do subtotal */
+.subtotal-box {
+    padding: 10px 15px; /* Espaçamento interno */
+    background-color: #eaeaea; /* Cor de fundo da caixa */
+    border: 1px solid #ccc; /* Borda da caixa */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Total */
+.total-container {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em coluna */
+    align-items: flex-end; /* Alinha os itens à direita */
+    margin-top: 20px; /* Espaço acima da seção total */
+}
+
+/* Títulos do subtotal */
+.total-container h3 {
+    font-size: 1.5em; /* Tamanho da fonte para o subtotal */
+    color: #df1515; /* Cor do subtotal */
+}
+
+/* Botões */
+.button-container {
+    display: flex; 
+    flex-direction: column; /* Coloca os botões em coluna */
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 15px; /* Espaço acima dos botões */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #df1515; /* Cor do botão */
+    color: #fff; /* Cor do texto */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-weight: bold; /* Negrito */
+    transition: background-color 0.3s, transform 0.2s; /* Efeito de transição */
+}
+
+button:hover {
+    background-color: #af0606; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40; /* Cor de fundo do rodapé */
+    color: #fff; /* Cor do texto */
+    position: relative; /* Posicionamento do rodapé */
+    bottom: 0; /* Fixa na parte inferior */
+    width: 100%; /* Largura total */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carrinho {
+        margin: 10px; /* Reduzir margem em telas menores */
+    }
+
+    .carrinho-item {
+        flex-direction: column; /* Coloca a imagem acima do texto em telas menores */
+        align-items: flex-start; /* Alinha itens à esquerda */
+    }
+
+    .carrinho-item img {
+        margin-bottom: 10px; /* Espaço abaixo da imagem */
+    }
+}
