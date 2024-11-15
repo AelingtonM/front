@@ -1,0 +1,194 @@
+/* Layout básico */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+header {
+    background-color: #df1515;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; /* Para distribuir logo e nav */
+    align-items: center; /* Para centralizar verticalmente */
+}
+
+header .logo h1 {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header nav {
+    margin-left: auto; /* Para empurrar o nav para a direita */
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px; /* Espaçamento entre os itens do menu */
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Produtos */
+.produtos {
+    padding: 40px;
+}
+
+.produtos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.produto-item {
+    width: 23%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+}
+
+.produto-item:hover {
+    box-shadow: 0 4px 8px rgba(250, 0, 0, 0.1);
+}
+
+.produto-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.produto-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.produto-item p {
+    font-size: 16px;
+    color: #28a745;
+}
+
+.produto-item button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.produto-item button:hover {
+    background-color: #218838;
+}
+
+/* Login/Cadastro */
+.login-cadastro {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.login, .cadastro {
+    background-color: white;
+    padding: 30px;
+    margin: 20px;
+    width: 35%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login h2, .cadastro h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #343a40;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    display: flex;
+    align-items: center; /* Alinha o checkbox e o texto verticalmente */
+    margin-bottom: 20px;
+    font-weight: normal; /* Muda o peso da fonte para normal para o texto dos termos */
+    color: #403434;
+}
+
+form label input[type="checkbox"] {
+    margin-right: 10px; /* Espaçamento à direita do checkbox */
+    width: auto; /* Garante que o checkbox não expanda */
+    height: auto; /* Garante que o checkbox não expanda */
+}
+
+form input, form select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .login, .cadastro {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login, .cadastro {
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+}
